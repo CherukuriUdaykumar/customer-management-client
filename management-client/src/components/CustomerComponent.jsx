@@ -37,11 +37,17 @@ const CustomerComponent = () => {
           .catch(() => toast.error("Error updating customer"));
       } else {
         createCustomer(customer)
-          .then(() => {
-            toast.success("Customer added successfully");
-            navigate('/customers/all');
-          })
-          .catch(() => toast.error("Error adding customer"));
+  .then(() => {
+    toast.success("Customer added successfully");
+    navigate('/customers/all');
+  })
+  .catch((error) => {
+    if (error.message === "Email already exists") {
+      toast.warning("This email is already registered.");
+    } else {
+      toast.error("Error adding customer");
+    }
+  });
       }
     }
   };
