@@ -1,12 +1,17 @@
 // CustomerService.js
 import axios from "axios";
 
-const getAllCustomersApi = "http://localhost:8080/api/customers/all";
-const createCustomerApi = "http://localhost:8080/api/customers/create";
-const getCustomerByIdApi = "http://localhost:8080/api/customers/{id}";
-const updateCustomerApi = "http://localhost:8080/api/customers/{id}";
-const deleteCustomerApi = "http://localhost:8080/api/customers/{id}";
+// Base URL of your deployed backend
+const BASE_URL = "https://customer-management-server-v1.onrender.com/api/customers";
 
+// API endpoints
+const getAllCustomersApi = `${BASE_URL}/all`;
+const createCustomerApi = `${BASE_URL}/create`;
+const getCustomerByIdApi = `${BASE_URL}/{id}`;
+const updateCustomerApi = `${BASE_URL}/{id}`;
+const deleteCustomerApi = `${BASE_URL}/{id}`;
+
+// API functions
 export const listCustomers = () => {
   return axios.get(getAllCustomersApi);
 };
@@ -31,6 +36,6 @@ export const updateCustomer = (id, customer) => {
   });
 };
 
-export const deleteCustomerById  = (id) => {
+export const deleteCustomerById = (id) => {
   return axios.delete(deleteCustomerApi.replace("{id}", id));
 };
