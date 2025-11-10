@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://customer-management-server-v1.onrender.com/api/customers";
+const BASE_URL = "https://customer-management-server-ojkb.onrender.com/api/customers";
 
 const getAllCustomersApi = `${BASE_URL}/all`;
 const createCustomerApi = `${BASE_URL}/create`;
